@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import logo from "../assets/phozt-logo.png";
 
 const menuItems = [
     "DASHBOARD",
@@ -75,15 +76,11 @@ export default function Sidebar({ collapsed = false }) {
                 {/* Header */}
                 <div className="flex items-center justify-between p-4 border-b">
                     <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-md bg-gradient-to-r from-red-500 to-orange-500 flex items-center justify-center">
-                            <svg
-                                className="w-5 h-5 text-white"
-                                viewBox="0 0 24 24"
-                                fill="currentColor"
-                            >
-                                <path d="M4 4h7v7H4V4zm9 0h7v7h-7V4zM4 13h7v7H4v-7zm9 0h7v7h-7v-7z" />
-                            </svg>
-                        </div>
+                        <img
+                            src={logo}
+                            alt="Phozt Logo"
+                            className="w-8 h-8 object-contain"
+                        />
                         {!collapsed && (
                             <h1 className="font-medium text-gray-800 text-lg tracking-wide">
                                 PHOZT
@@ -118,11 +115,10 @@ export default function Sidebar({ collapsed = false }) {
                                 setActiveItem(item);
                                 setSidebarOpen(false);
                             }}
-                            className={`flex items-center gap-3 px-4 py-3 w-full text-left transition-colors ${
-                                item === activeItem
+                            className={`flex items-center gap-3 px-4 py-3 w-full text-left transition-colors ${item === activeItem
                                     ? "text-white font-medium"
                                     : "text-gray-700 font-medium hover:text-white"
-                            }`}
+                                }`}
                             style={{
                                 backgroundColor: item === activeItem ? "#8A3FFC" : "transparent",
                                 fontWeight: 500,
@@ -161,7 +157,7 @@ export default function Sidebar({ collapsed = false }) {
                 </div>
             </aside>
 
-            
+
         </>
     );
 }
