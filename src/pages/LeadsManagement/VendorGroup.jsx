@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { ChevronLeft, ChevronRight, Plus, Trash2, Eye, Search } from "lucide-react";
 import Sidebar from "../../components/Sidebar";
 import profile from "../../assets/Icons/profile.png";
+import { useNavigate } from "react-router-dom";
 
 const VendorGroupCard = ({ title, members = [] }) => {
+
   return (
     <div className="bg-white border border-black rounded-lg overflow-hidden">
       {/* Header */}
@@ -76,6 +78,10 @@ const VendorGroupCard = ({ title, members = [] }) => {
 };
 
 const VendorGroup = () => {
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate("/createLeadgroup");
+  };
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 25;
   const city = "Bengaluru";
@@ -154,7 +160,9 @@ const VendorGroup = () => {
                 <option>{city}</option>
               </select>
             </div>
-            <button className="flex items-center gap-2 font-normal text-[18px] px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
+            <button
+              onClick={handleNavigate}
+              className="flex items-center gap-2 font-normal text-[18px] px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
               <Plus size={16} />
               Create Lead Group
             </button>

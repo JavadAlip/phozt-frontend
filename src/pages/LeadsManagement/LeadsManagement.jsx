@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 const LeadsTable = ({ leads }) => {
     const navigate = useNavigate();
+    
     const handleNavigate = () => {
         navigate("/vendorgroup");
     };
