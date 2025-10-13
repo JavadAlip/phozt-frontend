@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import { Trash2, Plus, Search } from 'lucide-react';
-import Sidebar from "../components/Sidebar";
-import totalLeads from "../assets/Icons/totalLeads.png";
-import Cities from "../assets/Icons/Cities.png";
-import vendos from "../assets/Icons/vendos.png";
-import articles from "../assets/Icons/articles.png";
-import plus from "../assets/Icons/plus.png";
-import leadDistribution from "../assets/Icons/leadDistribution.png";
+import Sidebar from "../../components/Sidebar";
+import totalLeads from "../../assets/Icons/totalLeads.png";
+import Cities from "../../assets/Icons/Cities.png";
+import vendos from "../../assets/Icons/vendos.png";
+import articles from "../../assets/Icons/articles.png";
+import plus from "../../assets/Icons/plus.png";
+import leadDistribution from "../../assets/Icons/leadDistribution.png";
+import { useNavigate } from "react-router-dom";
 
 const LeadsTable = ({ leads }) => {
+    const navigate = useNavigate();
+    const handleNavigate = () => {
+        navigate("/vendorgroup");
+    };
     return (
         <div className="bg-white rounded-lg border border-black shadow-sm flex flex-col h-[500px]">
             {/* Table Header Tabs */}
@@ -76,7 +81,9 @@ const LeadsTable = ({ leads }) => {
                                     {lead.vendorGroup ? (
                                         <span className="text-[#0C0A0A] font-inter font-medium  text-[#14px]">{lead.vendorGroup}</span>
                                     ) : (
-                                        <button className="text-gray-600 hover:text-gray-900 border border-gray-300 rounded p-1">
+                                        <button
+                                            onClick={handleNavigate}
+                                            className="text-gray-600 hover:text-gray-900 border border-gray-300 rounded p-1">
                                             <Plus size={18} />
                                         </button>
                                     )}
