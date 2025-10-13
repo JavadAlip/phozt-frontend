@@ -1,163 +1,166 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/phozt-logo.png";
 
 const menuItems = [
-    "DASHBOARD",
-    "LEADS",
-    "PAGES",
-    "VENDORS",
-    "ARTICLES",
-    "CITIES",
-    "CUSTOMER DATABASE",
-    "MEDIA",
-    "NOTIFICATION",
-    "ANALYTICS",
-    "SERVICES",
-    "SUPPORT",
-    "USER ROLES",
+//   "DASHBOARD",
+  "LEADS MANAGEMENT",
+  "PAGES",
+  "VENDORS",
+  "CITIES",
+  "ARTICLES",
 ];
 
 export default function Sidebar({ collapsed = false }) {
-    const [sidebarOpen, setSidebarOpen] = useState(false);
-    const [activeItem, setActiveItem] = useState("DASHBOARD");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [activeItem, setActiveItem] = useState("DASHBOARD");
+  const navigate = useNavigate();
 
-    return (
-        <>
-            <style>{`
-                @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-            `}</style>
+  // Route mapping for menu items
+  const routeMap = {
+    // "DASHBOARD": "/",
+    "LEADS MANAGEMENT": "/",
+    "PAGES": "/",
+    "VENDORS": "/",
+    "CITIES": "/",
+    "ARTICLES": "/",
+  };
 
-            {/* Mobile Menu Button */}
-            <button
-                onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="fixed top-4 left-4 z-50 md:hidden bg-white p-2 rounded-lg shadow-lg border"
-            >
-                <svg
-                    className="w-6 h-6 text-gray-700"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                >
-                    {sidebarOpen ? (
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M6 18L18 6M6 6l12 12"
-                        />
-                    ) : (
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M4 6h16M4 12h16M4 18h16"
-                        />
-                    )}
-                </svg>
-            </button>
+  return (
+    <>
+      {/* Mobile Menu Button */}
+      <button
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+        className="fixed top-4 left-4 z-50 md:hidden bg-white p-2 rounded-lg shadow-lg border"
+      >
+        <svg
+          className="w-6 h-6 text-gray-700"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          {sidebarOpen ? (
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
+          ) : (
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          )}
+        </svg>
+      </button>
 
-            {/* Overlay for mobile */}
-            {sidebarOpen && (
-                <div
-                    className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
-                    onClick={() => setSidebarOpen(false)}
-                />
-            )}
+      {/* Overlay for mobile */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
 
-            {/* Sidebar */}
-            <aside
-                className={`bg-white border-r shadow-md h-screen transition-all duration-300 
+      {/* Sidebar */}
+      <aside
+        className={`bg-white border-r shadow-md h-screen transition-all duration-300 
           ${collapsed ? "w-16" : "w-64"}
           fixed z-40
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
+          font-poppins
         `}
-                style={{ fontFamily: "'Poppins', sans-serif" }}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between p-4 border-b">
+          <div className="flex items-center gap-2">
+            <img
+              src={logo}
+              alt="Phozt Logo"
+              className="w-8 h-8 object-contain"
+            />
+            {!collapsed && (
+              <h1 className="font-medium text-gray-800 text-lg tracking-wide">
+                PHOZT
+              </h1>
+            )}
+          </div>
+          {!collapsed && (
+            <button className="text-gray-400 hover:text-gray-600">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+          )}
+        </div>
+
+        {/* Menu */}
+        <nav className="p-2 space-y-0.5 overflow-y-auto h-[calc(100vh-120px)]">
+          {menuItems.map((item) => (
+            <button
+              key={item}
+              onClick={() => {
+                setActiveItem(item);
+                setSidebarOpen(false);
+                if (routeMap[item]) navigate(routeMap[item]);
+              }}
+              className={`flex items-center gap-3 px-4 py-3 w-full text-left transition-colors ${
+                item === activeItem
+                  ? "text-white font-medium"
+                  : "text-gray-700 font-medium hover:text-white"
+              }`}
+              style={{
+                backgroundColor: item === activeItem ? "#8A3FFC" : "transparent",
+                fontWeight: 500,
+              }}
+              onMouseEnter={(e) => {
+                if (item !== activeItem) {
+                  e.currentTarget.style.backgroundColor = "#8A3FFC";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (item !== activeItem) {
+                  e.currentTarget.style.backgroundColor = "transparent";
+                }
+              }}
             >
-                {/* Header */}
-                <div className="flex items-center justify-between p-4 border-b">
-                    <div className="flex items-center gap-2">
-                        <img
-                            src={logo}
-                            alt="Phozt Logo"
-                            className="w-8 h-8 object-contain"
-                        />
-                        {!collapsed && (
-                            <h1 className="font-medium text-gray-800 text-lg tracking-wide">
-                                PHOZT
-                            </h1>
-                        )}
-                    </div>
-                    {!collapsed && (
-                        <button className="text-gray-400 hover:text-gray-600">
-                            <svg
-                                className="w-5 h-5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M15 19l-7-7 7-7"
-                                />
-                            </svg>
-                        </button>
-                    )}
-                </div>
+              {!collapsed && (
+                <span className="text-xs tracking-wide">{item}</span>
+              )}
+            </button>
+          ))}
+        </nav>
 
-                {/* Menu */}
-                <nav className="p-2 space-y-0.5 overflow-y-auto h-[calc(100vh-120px)]">
-                    {menuItems.map((item) => (
-                        <button
-                            key={item}
-                            onClick={() => {
-                                setActiveItem(item);
-                                setSidebarOpen(false);
-                            }}
-                            className={`flex items-center gap-3 px-4 py-3 w-full text-left transition-colors ${item === activeItem
-                                    ? "text-white font-medium"
-                                    : "text-gray-700 font-medium hover:text-white"
-                                }`}
-                            style={{
-                                backgroundColor: item === activeItem ? "#8A3FFC" : "transparent",
-                                fontWeight: 500,
-                            }}
-                            onMouseEnter={(e) => {
-                                if (item !== activeItem) {
-                                    e.currentTarget.style.backgroundColor = "#8A3FFC";
-                                }
-                            }}
-                            onMouseLeave={(e) => {
-                                if (item !== activeItem) {
-                                    e.currentTarget.style.backgroundColor = "transparent";
-                                }
-                            }}
-                        >
-                            {!collapsed && (
-                                <span className="text-xs tracking-wide">{item}</span>
-                            )}
-                        </button>
-                    ))}
-                </nav>
-
-                {/* Logout */}
-                <div className="absolute bottom-4 left-0 right-0 px-2">
-                    <button
-                        className="flex items-center gap-2 text-red-500 text-sm font-medium hover:text-white px-4 py-3 rounded-md transition w-full"
-                        onMouseEnter={(e) => {
-                            e.currentTarget.style.backgroundColor = "#8A3FFC";
-                        }}
-                        onMouseLeave={(e) => {
-                            e.currentTarget.style.backgroundColor = "transparent";
-                        }}
-                    >
-                        {!collapsed && <span className="text-xs tracking-wide">LOG OUT</span>}
-                    </button>
-                </div>
-            </aside>
-
-
-        </>
-    );
+        {/* Logout */}
+        <div className="absolute bottom-4 left-0 right-0 px-2">
+          <button
+            className="flex items-center gap-2 text-red-500 text-sm font-medium hover:text-white px-4 py-3 rounded-md transition w-full"
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "#8A3FFC";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "transparent";
+            }}
+          >
+            {!collapsed && (
+              <span className="text-xs tracking-wide">LOG OUT</span>
+            )}
+          </button>
+        </div>
+      </aside>
+    </>
+  );
 }
