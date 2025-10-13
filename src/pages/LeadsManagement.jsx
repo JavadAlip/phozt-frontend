@@ -14,10 +14,10 @@ const LeadsTable = ({ leads }) => {
             {/* Table Header Tabs */}
             <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center bg-gray-50 flex-shrink-0">
                 <div className="flex gap-4 text-sm">
-                    <button className="text-blue-600 font-medium hover:text-blue-700">Total Leads</button>
-                    <button className="text-gray-600 hover:text-gray-900">New Leads</button>
-                    <button className="text-gray-600 hover:text-gray-900">Assigned Leads</button>
-                    <button className="text-gray-600 hover:text-gray-900">Rejected Leads</button>
+                    <button className="text-blue-600 text-[18px] font-medium hover:text-blue-700">Total Leads</button>
+                    <button className="text-gray-600 text-[18px] hover:text-gray-900">New Leads</button>
+                    <button className="text-gray-600 text-[18px] hover:text-gray-900">Assigned Leads</button>
+                    <button className="text-gray-600 text-[18px] hover:text-gray-900">Rejected Leads</button>
                 </div>
             </div>
 
@@ -37,32 +37,32 @@ const LeadsTable = ({ leads }) => {
                 <table className="w-full text-sm min-w-max">
                     <thead className="bg-gray-50 border-b border-gray-200 sticky top-0 z-10">
                         <tr>
-                            <th className="px-6 py-3 text-left font-semibold text-gray-900 whitespace-nowrap">Customer Name</th>
-                            <th className="px-6 py-3 text-left font-semibold text-gray-900 whitespace-nowrap">Mobile Number</th>
-                            <th className="px-6 py-3 text-left font-semibold text-gray-900 whitespace-nowrap">Request Service</th>
-                            <th className="px-6 py-3 text-left font-semibold text-gray-900 whitespace-nowrap">Service by Vendor</th>
-                            <th className="px-6 py-3 text-left font-semibold text-gray-900 whitespace-nowrap">Event Date</th>
-                            <th className="px-6 py-3 text-left font-semibold text-gray-900 whitespace-nowrap">Status</th>
-                            <th className="px-6 py-3 text-left font-semibold text-gray-900 whitespace-nowrap">Delete</th>
-                            <th className="px-6 py-3 text-left font-semibold text-gray-900 whitespace-nowrap">Assign Vendor Group</th>
+                            <th className="px-6 py-3 text-left text-[18px] font-inter text-[111010] whitespace-nowrap"> Customer Name </th>
+                            <th className="px-6 py-3 text-left text-[18px] font-inter text-[111010] whitespace-nowrap">Mobile Number</th>
+                            <th className="px-6 py-3 text-left text-[18px] font-inter text-[111010] whitespace-nowrap">Request Service</th>
+                            <th className="px-6 py-3 text-left text-[18px] font-inter text-[111010] whitespace-nowrap">Service by Vendor</th>
+                            <th className="px-6 py-3 text-left text-[18px] font-inter text-[111010] whitespace-nowrap">Event Date</th>
+                            <th className="px-6 py-3 text-left text-[18px] font-inter text-[111010] whitespace-nowrap">Status</th>
+                            <th className="px-6 py-3 text-left text-[18px] font-inter text-[111010] whitespace-nowrap">Delete</th>
+                            <th className="px-6 py-3 text-left text-[18px] font-inter text-[111010] whitespace-nowrap">Assign Vendor Group</th>
                         </tr>
                     </thead>
                     <tbody>
                         {leads.map((lead, idx) => (
                             <tr key={idx} className="border-b border-gray-200 hover:bg-gray-50">
-                                <td className="px-6 py-3 text-gray-900 font-medium whitespace-nowrap">{lead.customer}</td>
-                                <td className="px-6 py-3 text-gray-600 whitespace-nowrap">{lead.mobile}</td>
-                                <td className="px-6 py-3 text-gray-600 whitespace-nowrap">{lead.service}</td>
-                                <td className="px-6 py-3 text-gray-600 whitespace-nowrap">{lead.vendor}</td>
-                                <td className="px-6 py-3 text-gray-600 whitespace-nowrap">{lead.eventDate}</td>
+                                <td className="px-6 py-3 text-black font-normal text-[18px] whitespace-nowrap">{lead.customer}</td>
+                                <td className="px-6 py-3 text-[#413F3F] font-normal text-[18px] whitespace-nowrap">{lead.mobile}</td>
+                                <td className="px-6 py-3 text-[#413F3F]  font-normal text-[18px] whitespace-nowrap">{lead.service}</td>
+                                <td className="px-6 py-3 text-[#413F3F]  font-normal text-[18px] whitespace-nowrap">{lead.vendor}</td>
+                                <td className="px-6 py-3 text-[#413F3F]  font-normal text-[18px] whitespace-nowrap">{lead.eventDate}</td>
                                 <td className="px-6 py-3 whitespace-nowrap">
                                     <span className={`px-3 py-1 rounded text-xs font-medium ${lead.status === 'New Lead'
-                                            ? 'bg-yellow-100 text-yellow-800'
-                                            : lead.status === 'Assigned'
-                                                ? 'bg-blue-100 text-blue-800'
-                                                : lead.status === 'Rejected'
-                                                    ? 'bg-red-100 text-red-800'
-                                                    : 'bg-gray-100 text-gray-800'
+                                        ? 'bg-[#FBF5C4] text-[#8B5401]'
+                                        : lead.status === 'Assigned'
+                                            ? 'bg-[#828DFF] text-[#8B5401]'
+                                            : lead.status === 'Rejected'
+                                                ? 'bg-[#828DFF] text-[#8B5401]'
+                                                : 'bg-gray-100 text-gray-800'
                                         }`}>
                                         {lead.status}
                                     </span>
@@ -74,7 +74,7 @@ const LeadsTable = ({ leads }) => {
                                 </td>
                                 <td className="px-6 py-3 whitespace-nowrap">
                                     {lead.vendorGroup ? (
-                                        <span className="text-gray-700 text-sm">{lead.vendorGroup}</span>
+                                        <span className="text-[#0C0A0A] font-inter font-medium  text-[#14px]">{lead.vendorGroup}</span>
                                     ) : (
                                         <button className="text-gray-600 hover:text-gray-900 border border-gray-300 rounded p-1">
                                             <Plus size={18} />
@@ -132,8 +132,8 @@ const LeadsManagement = () => {
                                 <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-white font-semibold">A</div>
                             </div>
                         </div>
-                        <h1 className="text-2xl font-bold text-gray-900">
-                            Lead Management <span className="font-bold">Dashboard</span>
+                        <h1 className="text-[36px] font-semibold text-black">
+                            Lead Management <span className="font-semibold">Dashboard</span>
                         </h1>
                     </div>
                 </div>
@@ -146,9 +146,9 @@ const LeadsManagement = () => {
                             {stats.map((stat, idx) => (
                                 <div key={idx} className="bg-white rounded-lg p-4 border border-black shadow-sm flex items-center justify-between">
                                     <div>
-                                        <p className="text-gray-600 text-sm mb-1">{stat.label}</p>
-                                        <p className="text-2xl font-bold text-gray-900">{stat.value}</p>
-                                        <p className="text-xs text-gray-500 mt-2">{stat.change}</p>
+                                        <p className="text-black text-[20px] font-medium font-poppins mb-1">{stat.label}</p>
+                                        <p className="text-[20px] font-medium text-black">{stat.value}</p>
+                                        <p className="text-[16px] font-medium text-black mt-2">{stat.change}</p>
                                     </div>
                                     <img src={stat.icon} alt={`${stat.label} icon`} className="w-8 h-8 object-contain" />
                                 </div>
@@ -156,8 +156,8 @@ const LeadsManagement = () => {
                         </div>
                         {/* Lead Distribution Chart */}
                         <div className="bg-white rounded-lg border border-black p-6 mb-6 shadow-sm">
-                            <h2 className="text-lg font-semibold text-gray-900 mb-4">Lead Distribution with Vendor Groups</h2>
-                            <div className="bg-gray-50 h-10 rounded flex items-center justify-start text-gray-400 text-sm">
+                            <h2 className="text-[28px] font-bold text-black mb-4">Lead Distribution with Vendor Groups</h2>
+                            <div className="bg-gray-50 h-10 rounded font-normal flex items-center justify-start text-gray-400 text-[18px]">
                                 You are Distributing leads For vendors under rule/ manual intervention
                             </div>
                         </div>
@@ -167,17 +167,17 @@ const LeadsManagement = () => {
 
                         {/* Quick Actions */}
                         <div className="mt-6 bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
-                            <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
+                            <h3 className="text-[36px] font-bold text-black mb-4">Quick Actions</h3>
                             <div className="grid grid-cols-4 gap-48 justify-items-start">
                                 <div className="border border-black rounded-lg p-6 text-center hover:bg-gray-50 cursor-pointer w-64">
                                     <img src={plus} alt="plus icon" className="mx-auto mb-2 w-6 h-6" />
-                                    <p className="text-gray-700 font-medium mb-1">Add A New Lead</p>
-                                    <p className="text-sm text-gray-500">Create a new lead manually</p>
+                                    <p className="text-black font-regular text-[16px] mb-1">Add A New Lead</p>
+                                    <p className="text-[14px] text-black font-regular">Create a new lead manually</p>
                                 </div>
                                 <div className="border border-black rounded-lg p-6 text-center hover:bg-gray-50 cursor-pointer w-64">
                                     <img src={leadDistribution} alt="leadDistribution icon" className="mx-auto mb-2 w-6 h-6" />
-                                    <p className="text-gray-700 font-medium mb-1">Lead Distribution Method</p>
-                                    <p className="text-sm text-gray-500">Select how you want to distribute the selected leads</p>
+                                    <p className="text-black font-normal text-[16px] mb-1">Lead Distribution Method</p>
+                                    <p className="text-[14px] font-normal text-black">Select how you want to distribute the selected leads</p>
                                 </div>
                             </div>
                         </div>

@@ -8,6 +8,10 @@ export default {
     extend: {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
+        inter: ["Inter", "sans-serif"], // Added Inter
+      },
+      fontSize: {
+        '18': '18px', // optional if you want a named size
       },
     },
   },
