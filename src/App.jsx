@@ -7,6 +7,7 @@ import CreateLeadGroup from "./pages/LeadsManagement/CreateLeadGroup";
 import CreateNewLead from "./pages/LeadsManagement/CreateNewLead";
 import DistributionMethod from "./pages/LeadsManagement/DistributionMethod";
 import PagesManagementDashboard from "./pages/PagesManagement/PagesManagementDashboard";
+import Logosettings from "./../src/components/Page Management/Logosettings";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/create-new-lead" element={<CreateNewLead />} />
         <Route path="/distribution-method" element={<DistributionMethod />} />
         <Route path="/pages-management-dashboard" element={<PagesManagementDashboard />} />
+        <Route path="/logo-settings" element={<Logosettings />} />
       </Routes>
     </Router>
   );
