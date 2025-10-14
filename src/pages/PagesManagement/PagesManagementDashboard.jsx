@@ -12,6 +12,10 @@ import save from "../../assets/Icons/save.png";
 import tag from "../../assets/Icons/tag.png";
 import uploadImg from "../../assets/Icons/uploadImg.png";
 import { useNavigate } from "react-router-dom";
+import LogoAndQuote from "../../components/Page Management/LogoAndQuote";
+import KnowUs from "../../components/Page Management/KnowUs";
+import Services from '../../components/Page Management/Services';
+import NeededtoKnow from '../../components/Page Management/NeededtoKnow';
 
 
 
@@ -170,8 +174,9 @@ const PagesManagementDashboard = () => {
                         </div>
 
 
+
                         {/* Footer Management Section */}
-                        <div className="bg-white border border-black ">
+                        <div className="bg-white border border-black">
                             <div className="p-5 border-b border-gray-200">
                                 <h2 className="text-[24px] font-semibold text-gray-900">Footer Management</h2>
                             </div>
@@ -215,41 +220,39 @@ const PagesManagementDashboard = () => {
                                     ))}
                                 </div>
 
-                                {/* Footer Inputs */}
-                                <div className="space-y-3 mb-5">
-                                    <div className="max-w-xs">
-                                        <label className="block text-[20px] font-semibold text-black mb-1">
-                                            Footer column - title
-                                        </label>
-                                        <div className="flex items-center gap-2 px-3 py-2 border border-black bg-white">
-                                            <img src={uploadImg} alt="upload" className="w-4 h-4 " />
-                                            <input
-                                                type="text"
-                                                placeholder="Upload the image"
-                                                className="w-40 text-[14px] font-semibold placeholder:text-black outline-none"
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="max-w-xs">
-                                        <div className="flex items-center gap-2 px-3 py-2 border border-black bg-white">
-                                            <img src={tag} alt="tag" className="w-4 h-4 " />
-                                            <input
-                                                type="text"
-                                                placeholder="Tagline of category"
-                                                className="w-40 text-[14px] text-black placeholder:text-black font-semibold outline-none"
-                                            />
-                                        </div>
-                                    </div>
+                                {/* Conditional Footer Component */}
+                                <div className="mt-5">
+                                    {activeFooterTab === "Logo and quote" && <LogoAndQuote />}
+                                    {activeFooterTab === "Know Us" && <KnowUs />}
+                                    {activeFooterTab === "Services" && <Services />}
+                                    {activeFooterTab === "Needed to Know" && <NeededtoKnow />}
                                 </div>
 
-                                <div className="flex justify-end">
-                                    <button className="px-4 py-2 bg-white border border-black text-[16px] font-medium hover:bg-gray-50 flex items-center gap-2">
-                                        <img src={save} alt="save" className="w-4 h-4" />
-                                        <span>Save changes</span>
-                                    </button>
+                                {/* Footer Buttons */}
+                                <div className="flex flex-row gap-4 mt-5 justify-end">
+                                    {activeFooterTab === "Services" || activeFooterTab === "Needed to Know" ? (
+                                        <>
+                                            <button className="px-4 py-2 bg-white border border-black text-[16px] font-medium hover:bg-gray-50 flex items-center gap-2">
+                                                <p>+</p>
+                                                <span>Add the form </span>
+                                            </button>
+
+                                            <button className="px-4 py-2 bg-white border border-black text-[16px] font-medium hover:bg-gray-50 flex items-center gap-2">
+                                                <img src={save} alt="save" className="w-4 h-4" />
+                                                <span>Save changes</span>
+                                            </button>
+                                        </>
+                                    ) : (
+                                        <button className="px-4 py-2 bg-white border border-black text-[16px] font-medium hover:bg-gray-50 flex items-center gap-2">
+                                            <img src={save} alt="save" className="w-4 h-4" />
+                                            <span>Save changes</span>
+                                        </button>
+                                    )}
                                 </div>
+
                             </div>
                         </div>
+
 
 
                         {/* Page Manager Section */}
