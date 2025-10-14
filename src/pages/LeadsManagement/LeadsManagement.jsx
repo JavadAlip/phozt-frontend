@@ -178,13 +178,15 @@ const LeadsManagement = () => {
                             <h3 className="text-[36px] font-bold text-black mb-4">Quick Actions</h3>
                             <div className="grid grid-cols-4 gap-48 justify-items-start">
                                 <div
-                                    onClick={() => navigate("/CreateNewLead")}
+                                    onClick={() => navigate("/create-new-lead")}
                                     className="border border-black rounded-lg p-6 text-center hover:bg-gray-50 cursor-pointer w-64">
                                     <img src={plus} alt="plus icon" className="mx-auto mb-2 w-6 h-6" />
                                     <p className="text-black font-regular text-[16px] mb-1">Add A New Lead</p>
                                     <p className="text-[14px] text-black font-regular">Create a new lead manually</p>
                                 </div>
-                                <div className="border border-black rounded-lg p-6 text-center hover:bg-gray-50 cursor-pointer w-64">
+                                <div
+                                    onClick={() => navigate("/distribution-method")}
+                                    className="border border-black rounded-lg p-6 text-center hover:bg-gray-50 cursor-pointer w-64">
                                     <img src={leadDistribution} alt="leadDistribution icon" className="mx-auto mb-2 w-6 h-6" />
                                     <p className="text-black font-normal text-[16px] mb-1">Lead Distribution Method</p>
                                     <p className="text-[14px] font-normal text-black">Select how you want to distribute the selected leads</p>
