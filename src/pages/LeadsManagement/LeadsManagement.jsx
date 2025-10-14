@@ -11,9 +11,28 @@ import { useNavigate } from "react-router-dom";
 
 const LeadsTable = ({ leads }) => {
     const navigate = useNavigate();
+    const [selectedLeads, setSelectedLeads] = useState([]);
+
     const handleNavigate = () => {
         navigate("/vendorgroup");
     };
+
+    const handleSelectLead = (id) => {
+        if (selectedLeads.includes(id)) {
+            setSelectedLeads(selectedLeads.filter((leadId) => leadId !== id));
+        } else {
+            setSelectedLeads([...selectedLeads, id]);
+        }
+    };
+
+    const handleSelectAll = () => {
+        if (selectedLeads.length === leads.length) {
+            setSelectedLeads([]);
+        } else {
+            setSelectedLeads(leads.map((lead) => lead.id));
+        }
+    };
+
     return (
         <div className="bg-white rounded-lg border border-black shadow-sm flex flex-col h-[500px]">
             {/* Table Header Tabs */}
@@ -42,31 +61,47 @@ const LeadsTable = ({ leads }) => {
                 <table className="w-full text-sm min-w-max">
                     <thead className="bg-gray-50 border-b border-gray-200 sticky top-0 z-10">
                         <tr>
-                            <th className="px-6 py-3 text-left text-[18px] font-inter text-[111010] whitespace-nowrap"> Customer Name </th>
-                            <th className="px-6 py-3 text-left text-[18px] font-inter text-[111010] whitespace-nowrap">Mobile Number</th>
-                            <th className="px-6 py-3 text-left text-[18px] font-inter text-[111010] whitespace-nowrap">Request Service</th>
-                            <th className="px-6 py-3 text-left text-[18px] font-inter text-[111010] whitespace-nowrap">Service by Vendor</th>
-                            <th className="px-6 py-3 text-left text-[18px] font-inter text-[111010] whitespace-nowrap">Event Date</th>
-                            <th className="px-6 py-3 text-left text-[18px] font-inter text-[111010] whitespace-nowrap">Status</th>
-                            <th className="px-6 py-3 text-left text-[18px] font-inter text-[111010] whitespace-nowrap">Delete</th>
-                            <th className="px-6 py-3 text-left text-[18px] font-inter text-[111010] whitespace-nowrap">Assign Vendor Group</th>
+                            {/* Select All Checkbox */}
+                            <th className="px-6 py-3">
+                                <input
+                                    type="checkbox"
+                                    checked={selectedLeads.length === leads.length}
+                                    onChange={handleSelectAll}
+                                />
+                            </th>
+                            <th className="px-6 py-3 text-left text-[18px] font-inter whitespace-nowrap">Customer Name</th>
+                            <th className="px-6 py-3 text-left text-[18px] font-inter whitespace-nowrap">Mobile Number</th>
+                            <th className="px-6 py-3 text-left text-[18px] font-inter whitespace-nowrap">Request Service</th>
+                            <th className="px-6 py-3 text-left text-[18px] font-inter whitespace-nowrap">Service by Vendor</th>
+                            <th className="px-6 py-3 text-left text-[18px] font-inter whitespace-nowrap">Event Date</th>
+                            <th className="px-6 py-3 text-left text-[18px] font-inter whitespace-nowrap">Status</th>
+                            <th className="px-6 py-3 text-left text-[18px] font-inter whitespace-nowrap">Delete</th>
+                            <th className="px-6 py-3 text-left text-[18px] font-inter whitespace-nowrap">Assign Vendor Group</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {leads.map((lead, idx) => (
-                            <tr key={idx} className="border-b border-gray-200 hover:bg-gray-50">
+                        {leads.map((lead) => (
+                            <tr key={lead.id} className="border-b border-gray-200 hover:bg-gray-50">
+                                {/* Row Checkbox */}
+                                <td className="px-6 py-3">
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedLeads.includes(lead.id)}
+                                        onChange={() => handleSelectLead(lead.id)}
+                                    />
+                                </td>
                                 <td className="px-6 py-3 text-black font-normal text-[18px] whitespace-nowrap">{lead.customer}</td>
                                 <td className="px-6 py-3 text-[#413F3F] font-normal text-[18px] whitespace-nowrap">{lead.mobile}</td>
-                                <td className="px-6 py-3 text-[#413F3F]  font-normal text-[18px] whitespace-nowrap">{lead.service}</td>
-                                <td className="px-6 py-3 text-[#413F3F]  font-normal text-[18px] whitespace-nowrap">{lead.vendor}</td>
-                                <td className="px-6 py-3 text-[#413F3F]  font-normal text-[18px] whitespace-nowrap">{lead.eventDate}</td>
+                                <td className="px-6 py-3 text-[#413F3F] font-normal text-[18px] whitespace-nowrap">{lead.service}</td>
+                                <td className="px-6 py-3 text-[#413F3F] font-normal text-[18px] whitespace-nowrap">{lead.vendor}</td>
+                                <td className="px-6 py-3 text-[#413F3F] font-normal text-[18px] whitespace-nowrap">{lead.eventDate}</td>
                                 <td className="px-6 py-3 whitespace-nowrap">
                                     <span className={`px-3 py-1 rounded text-xs font-medium ${lead.status === 'New Lead'
                                         ? 'bg-[#FBF5C4] text-[#8B5401]'
                                         : lead.status === 'Assigned'
                                             ? 'bg-[#828DFF] text-[#8B5401]'
                                             : lead.status === 'Rejected'
-                                                ? 'bg-[#828DFF] text-[#8B5401]'
+                                                ? 'bg-[#FF2024] text-[#8B5401]'
                                                 : 'bg-gray-100 text-gray-800'
                                         }`}>
                                         {lead.status}
@@ -79,7 +114,7 @@ const LeadsTable = ({ leads }) => {
                                 </td>
                                 <td className="px-6 py-3 whitespace-nowrap">
                                     {lead.vendorGroup ? (
-                                        <span className="text-[#0C0A0A] font-inter font-medium  text-[#14px]">{lead.vendorGroup}</span>
+                                        <span className="text-[#0C0A0A] font-inter font-medium text-[14px]">{lead.vendorGroup}</span>
                                     ) : (
                                         <button
                                             onClick={handleNavigate}

@@ -6,6 +6,7 @@ import VendorGroup from "./pages/LeadsManagement/VendorGroup";
 import CreateLeadGroup from "./pages/LeadsManagement/CreateLeadGroup";
 import CreateNewLead from "./pages/LeadsManagement/CreateNewLead";
 import DistributionMethod from "./pages/LeadsManagement/DistributionMethod";
+import PagesManagementDashboard from "./pages/PagesManagement/PagesManagementDashboard";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/createLeadgroup" element={<CreateLeadGroup />} />
         <Route path="/create-new-lead" element={<CreateNewLead />} />
         <Route path="/distribution-method" element={<DistributionMethod />} />
+        <Route path="/pages-management-dashboard" element={<PagesManagementDashboard />} />
       </Routes>
     </Router>
   );

@@ -111,6 +111,30 @@ const VendorGroup = () => {
         { name: "Suresh", subname: "Studio 19 Photography", status: "20/50 Leads" },
       ],
     },
+     {
+      title: "maternity Catering",
+      members: [
+        { name: "Praveen Kumar", subname: "Studio 19 Photography", status: "28/50 Leads" },
+        { name: "Naveen Kumar", subname: "Studio 19 Photography", status: "28/50 Leads" },
+        { name: "Suresh", subname: "Studio 19 Photography", status: "20/50 Leads" },
+      ],
+    },
+     {
+      title: "Naming Makeup",
+      members: [
+        { name: "Praveen Kumar", subname: "Studio 19 Photography", status: "28/50 Leads" },
+        { name: "Naveen Kumar", subname: "Studio 19 Photography", status: "28/50 Leads" },
+        { name: "Suresh", subname: "Studio 19 Photography", status: "20/50 Leads" },
+      ],
+    },
+     {
+      title: "HW Photography",
+      members: [
+        { name: "Praveen Kumar", subname: "Studio 19 Photography", status: "28/50 Leads" },
+        { name: "Naveen Kumar", subname: "Studio 19 Photography", status: "28/50 Leads" },
+        { name: "Suresh", subname: "Studio 19 Photography", status: "20/50 Leads" },
+      ],
+    },
   ];
 
   const pageNumbers = [];

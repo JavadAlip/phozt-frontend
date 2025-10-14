@@ -20,7 +20,7 @@ export default function Sidebar({ collapsed = false }) {
   const routeMap = {
     // "DASHBOARD": "/",
     "LEADS MANAGEMENT": "/",
-    "PAGES": "/",
+    "PAGES": "/pages-management-dashboard",
     "VENDORS": "/",
     "CITIES": "/",
     "ARTICLES": "/",
