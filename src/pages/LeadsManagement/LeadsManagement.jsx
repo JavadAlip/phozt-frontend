@@ -11,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 
 const LeadsTable = ({ leads }) => {
     const navigate = useNavigate();
-    
     const handleNavigate = () => {
         navigate("/vendorgroup");
     };
@@ -99,6 +98,7 @@ const LeadsTable = ({ leads }) => {
 };
 
 const LeadsManagement = () => {
+    const navigate = useNavigate();
     const [leads] = useState([
         { id: '1', customer: 'Nagararjuna Bheemanand', mobile: '9876543210', service: 'Photography Services', vendor: 'Studio B - Photography', eventDate: '04-07-2025', status: 'New Lead', vendorGroup: null },
         { id: '2', customer: 'Rajesh Kumar', mobile: '9876543211', service: 'Catering Services', vendor: 'Royal Caterers', eventDate: '15-07-2025', status: 'Assigned', vendorGroup: 'Baby shower Makeup' },
@@ -177,7 +177,9 @@ const LeadsManagement = () => {
                         <div className="mt-6 bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
                             <h3 className="text-[36px] font-bold text-black mb-4">Quick Actions</h3>
                             <div className="grid grid-cols-4 gap-48 justify-items-start">
-                                <div className="border border-black rounded-lg p-6 text-center hover:bg-gray-50 cursor-pointer w-64">
+                                <div
+                                    onClick={() => navigate("/CreateNewLead")}
+                                    className="border border-black rounded-lg p-6 text-center hover:bg-gray-50 cursor-pointer w-64">
                                     <img src={plus} alt="plus icon" className="mx-auto mb-2 w-6 h-6" />
                                     <p className="text-black font-regular text-[16px] mb-1">Add A New Lead</p>
                                     <p className="text-[14px] text-black font-regular">Create a new lead manually</p>

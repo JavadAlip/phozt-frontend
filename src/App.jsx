@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Leads from "./pages/LeadsManagement/LeadsManagement";
 import VendorGroup from "./pages/LeadsManagement/VendorGroup";
 import CreateLeadGroup from "./pages/LeadsManagement/CreateLeadGroup";
+import CreateNewLead from "./pages/LeadsManagement/CreateNewLead";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Route path="/" element={<Leads />} />
         <Route path="/vendorgroup" element={<VendorGroup />} />
         <Route path="/createLeadgroup" element={<CreateLeadGroup />} />
+          <Route path="/CreateNewLead" element={<CreateNewLead />} />
       </Routes>
     </Router>
   );
