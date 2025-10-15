@@ -7,22 +7,24 @@ import CreateLeadGroup from "./pages/LeadsManagement/CreateLeadGroup";
 import CreateNewLead from "./pages/LeadsManagement/CreateNewLead";
 import DistributionMethod from "./pages/LeadsManagement/DistributionMethod";
 import PagesManagementDashboard from "./pages/PagesManagement/PagesManagementDashboard";
-import Logosettings from "./../src/components/Page Management/Logosettings";
 import KnowUs from "./../src/components/Page Management/KnowUs";
+import ServicesList from "./pages/PagesManagement/ServicesList";
+import HomePages from "./pages/PagesManagement/HomePages";
+import AddNewHomePage from "./pages/PagesManagement/AddNewHomePage";
 
 export default function App() {
   return (
     <Router>
       <Routes>
-        {/* <Route path="/" element={<Dashboard />} /> */}
         <Route path="/" element={<Leads />} />
         <Route path="/vendorgroup" element={<VendorGroup />} />
         <Route path="/createLeadgroup" element={<CreateLeadGroup />} />
         <Route path="/create-new-lead" element={<CreateNewLead />} />
         <Route path="/distribution-method" element={<DistributionMethod />} />
         <Route path="/pages-management-dashboard" element={<PagesManagementDashboard />} />
-        <Route path="/logo-settings" element={<Logosettings />} />
-         <Route path="/know-us" element={<KnowUs />} />
+        <Route path="/services-list" element={<ServicesList />} />
+        <Route path="/know-us" element={<KnowUs />} />
+        <Route path="/home-page" element={<HomePages />} />
       </Routes>
     </Router>
   );

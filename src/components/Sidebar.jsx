@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/phozt-logo.png";
+import { MdLogout } from "react-icons/md";
 
 const menuItems = [
-//   "DASHBOARD",
+  //   "DASHBOARD",
   "LEADS MANAGEMENT",
   "PAGES",
   "VENDORS",
@@ -117,11 +118,10 @@ export default function Sidebar({ collapsed = false }) {
                 setSidebarOpen(false);
                 if (routeMap[item]) navigate(routeMap[item]);
               }}
-              className={`flex items-center gap-3 px-4 py-3 w-full text-left transition-colors ${
-                item === activeItem
+              className={`flex items-center gap-3 px-4 py-3 w-full text-left transition-colors ${item === activeItem
                   ? "text-white font-medium"
                   : "text-gray-700 font-medium hover:text-white"
-              }`}
+                }`}
               style={{
                 backgroundColor: item === activeItem ? "#8A3FFC" : "transparent",
                 fontWeight: 500,
@@ -147,7 +147,7 @@ export default function Sidebar({ collapsed = false }) {
         {/* Logout */}
         <div className="absolute bottom-4 left-0 right-0 px-2">
           <button
-            className="flex items-center gap-2 text-red-500 text-sm font-medium hover:text-white px-4 py-3 rounded-md transition w-full"
+            className="flex items-center gap-2 text-sm font-medium hover:text-white px-4 py-3 rounded-md transition w-full"
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = "#8A3FFC";
             }}
@@ -156,7 +156,10 @@ export default function Sidebar({ collapsed = false }) {
             }}
           >
             {!collapsed && (
-              <span className="text-xs tracking-wide">LOG OUT</span>
+              <>
+                <MdLogout size={18} color="#FF7752" />
+                <span className="text-xs tracking-wide text-[#FF7752]">LOG OUT</span>
+              </>
             )}
           </button>
         </div>
