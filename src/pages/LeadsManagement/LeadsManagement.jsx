@@ -14,7 +14,7 @@ const LeadsTable = ({ leads }) => {
     const [selectedLeads, setSelectedLeads] = useState([]);
 
     const handleNavigate = () => {
-        navigate("/vendorgroup");
+        navigate("/vendor-group");
     };
 
     const handleSelectLead = (id) => {

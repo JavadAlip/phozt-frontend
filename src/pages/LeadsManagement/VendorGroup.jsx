@@ -80,7 +80,7 @@ const VendorGroupCard = ({ title, members = [] }) => {
 const VendorGroup = () => {
   const navigate = useNavigate();
   const handleNavigate = () => {
-    navigate("/createLeadgroup");
+    navigate("/create-lead-group");
   };
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 25;

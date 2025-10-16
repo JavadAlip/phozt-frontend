@@ -22,7 +22,7 @@ export default function Sidebar({ collapsed = false }) {
     // "DASHBOARD": "/",
     "LEADS MANAGEMENT": "/",
     "PAGES": "/pages-management-dashboard",
-    "VENDORS": "/",
+    "VENDORS": "/vendor",
     "CITIES": "/",
     "ARTICLES": "/",
   };
