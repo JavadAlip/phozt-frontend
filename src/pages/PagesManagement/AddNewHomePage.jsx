@@ -1,4 +1,10 @@
 import React, { useState } from 'react';
+import Content from '../../components/Page HomePage/Content';
+import Seo from '../../components/Page HomePage/Seo';
+import Blocks from '../../components/Page HomePage/Blocks';
+import InternalLinks from '../../components/Page HomePage/InternalLinks';
+import OtherVendors from '../../components/Page HomePage/OtherVendors';
+// import AddNewCard from '../../components/Page HomePage/AddNewCard';
 
 const AddNewHomePage = ({ onClose }) => {
   const [activeTab, setActiveTab] = useState('Basic Info');
@@ -30,7 +36,7 @@ const AddNewHomePage = ({ onClose }) => {
 
   // Proper cancel handler that closes modal
   const handleCancel = () => {
-    if (onClose) onClose(); 
+    if (onClose) onClose();
   };
 
   const handleContinue = () => {
@@ -41,12 +47,12 @@ const AddNewHomePage = ({ onClose }) => {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
       {/* Modal container */}
       <div
-        className="bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden"
+        className="bg-white  shadow-xl w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className="flex items-center justify-between border-b px-6 py-4">
-          <h2 className="text-xl font-semibold text-gray-900">
+          <h2 className="text-xl font-semibold text-black">
             Add New Page
           </h2>
         </div>
@@ -58,11 +64,10 @@ const AddNewHomePage = ({ onClose }) => {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-4 py-3 text-sm font-medium ${
-                  activeTab === tab
-                    ? 'text-purple-600 border-b-2 border-purple-600'
-                    : 'text-gray-600 hover:text-gray-900'
-                }`}
+                className={`px-4 py-3 text-sm font-medium ${activeTab === tab
+                  ? 'text-purple-600 border-b-2 border-purple-600'
+                  : 'text-black hover:text-black'
+                  }`}
               >
                 {tab}
               </button>
@@ -77,27 +82,27 @@ const AddNewHomePage = ({ onClose }) => {
               {/* Page Title */}
               <div className="flex gap-6">
                 <div className="flex-1">
-                  <label className="block text-sm font-medium text-gray-900 mb-2">
-                    Page Title ( H1 ) <span className="text-red-500">*</span>
+                  <label className="block text-sm font-medium text-black mb-2">
+                    Page Title ( H1 ) <span className="text-black">*</span>
                   </label>
                   <input
                     type="text"
                     placeholder="Enter page title"
                     value={formData.pageTitle}
                     onChange={(e) => handleInputChange('pageTitle', e.target.value)}
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
+                    className="w-full px-4 py-2.5 border border-black focus:outline-none placeholder:text-black focus:ring-2 focus:ring-purple-500 text-sm"
                   />
-                  <div className="text-right text-xs text-gray-500 mt-1">19/100</div>
+                  <div className="text-right text-xs text-black mt-1">19/100</div>
                 </div>
 
                 <div className="w-64">
-                  <label className="block text-sm font-medium text-gray-900 mb-2">
+                  <label className="block text-sm font-medium text-black mb-2">
                     Page Type
                   </label>
                   <select
                     value={formData.pageType}
                     onChange={(e) => handleInputChange('pageType', e.target.value)}
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm bg-white"
+                    className="w-full px-4 py-2.5 border border-black focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm bg-white"
                   >
                     <option value="">Select page type</option>
                     <option value="home">Home Page</option>
@@ -110,7 +115,7 @@ const AddNewHomePage = ({ onClose }) => {
               {/* Slug/URL */}
               <div className="flex gap-6">
                 <div className="flex-1">
-                  <label className="block text-sm font-medium text-gray-900 mb-2">
+                  <label className="block text-sm font-medium text-black mb-2">
                     Slug / URL
                   </label>
                   <input
@@ -118,18 +123,18 @@ const AddNewHomePage = ({ onClose }) => {
                     placeholder="/best-photographer-marathalli"
                     value={formData.slugUrl}
                     onChange={(e) => handleInputChange('slugUrl', e.target.value)}
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
+                    className="w-full px-4 py-2.5 border border-black placeholder:text-black focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
                   />
                 </div>
 
                 <div className="w-64">
-                  <label className="block text-sm font-medium text-gray-900 mb-2">
+                  <label className="block text-sm font-medium text-black mb-2">
                     Parent Page (optional)
                   </label>
                   <select
                     value={formData.parentPage}
                     onChange={(e) => handleInputChange('parentPage', e.target.value)}
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm bg-white"
+                    className="w-full px-4 py-2.5 border border-black  focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm bg-white"
                   >
                     <option value=""></option>
                     <option value="parent1">Parent Page 1</option>
@@ -140,54 +145,67 @@ const AddNewHomePage = ({ onClose }) => {
 
               {/* Description For H1 */}
               <div>
-                <label className="block text-sm font-medium text-gray-900 mb-2">
+                <label className="block text-sm font-medium text-black mb-2">
                   Description For H1
                 </label>
                 <textarea
                   value={formData.descriptionForH1}
                   onChange={(e) => handleInputChange('descriptionForH1', e.target.value)}
                   rows={6}
-                  className="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm resize-none"
+                  className="w-full px-4 py-2.5 border border-black focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm resize-none"
                 />
                 <div className="text-right text-xs text-gray-500 mt-1">1/300</div>
               </div>
 
               {/* Status */}
-              <div className="flex items-center gap-4">
-                <label className="block text-sm font-medium text-gray-900">
+              <div className="flex items-center  gap-4 w-full">
+                <label className="block text-sm font-medium text-black">
                   Status
                 </label>
                 <select
                   value={formData.status}
                   onChange={(e) => handleInputChange('status', e.target.value)}
-                  className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm bg-white"
+                  className="w-96 px-4 py-2 border border-black focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm bg-white"
                 >
                   <option value="Published">Published</option>
                   <option value="Draft">Draft</option>
                   <option value="Inactive">Inactive</option>
                 </select>
               </div>
+
             </div>
           )}
+          {activeTab === 'Content' ? (
+            <Content />
+          ) : activeTab === 'SEO' ? (
+            <Seo />
+          ) : activeTab === 'Blocks' ? (
+            <Blocks />
+          ) : activeTab === 'Internal Links' ? (
+            <InternalLinks />
+          ) : activeTab === 'Other Vendors' ? (
+            <OtherVendors />
 
-          {activeTab !== 'Basic Info' && (
+          ) : activeTab !== 'Basic Info' && (
             <div className="flex items-center justify-center h-64 text-gray-500">
               {activeTab} content will appear here
             </div>
           )}
+
+
         </div>
 
         {/* Footer */}
         <div className="border-t px-6 py-4 flex justify-end gap-3">
           <button
             onClick={handleCancel}
-            className="px-6 py-2.5 border border-gray-300 rounded-md font-medium text-gray-700 hover:bg-gray-50 text-sm"
+            className="px-6 py-2.5 border border-black font-medium text-black hover:bg-gray-50 text-sm"
           >
             Cancel
           </button>
           <button
             onClick={handleContinue}
-            className="px-6 py-2.5 bg-gray-900 text-white rounded-md font-medium hover:bg-gray-800 text-sm flex items-center gap-2"
+            className="px-6 py-2.5 bg-gray-900 text-white font-medium hover:bg-gray-800 text-sm flex items-center gap-2"
           >
             Continue
             <svg
