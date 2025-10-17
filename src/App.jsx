@@ -14,6 +14,10 @@ import VendorMain from "./pages/Vendors/VendorMain";
 import CategoryDetail from "./pages/Vendors/CategoryDetail";
 import CategoryPortfolio from "./pages/Vendors/CategoryPortfolio";
 import ViewAll from "./pages/Vendors/ViewAll";
+import CityManagement from "./pages/Cities/CityManagement";
+import LocalAreaDetails from "./pages/Cities/LocalAreaDetails";
+import ArticlesMain from "./pages/Articles/ArticlesMain";
+import EditArticle from "./pages/Articles/EditArticle";
 export default function App() {
   return (
     <Router>
@@ -31,7 +35,11 @@ export default function App() {
         <Route path="/category-detail" element={<CategoryDetail />} />
         <Route path="/category-portfolio" element={<CategoryPortfolio />} />
         <Route path="/View-all" element={<ViewAll />} />
+        <Route path="/city-management" element={<CityManagement />} />
+        <Route path="/local-area-details" element={< LocalAreaDetails />} />
+        <Route path="/articles" element={<ArticlesMain />} />
+        <Route path="/edit-article" element={<EditArticle />} />
       </Routes>
     </Router>
-  );
+  ); F
 }

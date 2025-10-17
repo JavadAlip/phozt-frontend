@@ -23,8 +23,8 @@ export default function Sidebar({ collapsed = false }) {
     "LEADS MANAGEMENT": "/",
     "PAGES": "/pages-management-dashboard",
     "VENDORS": "/vendor",
-    "CITIES": "/",
-    "ARTICLES": "/",
+    "CITIES": "/city-management",
+    "ARTICLES": "/articles",
   };
 
   return (

@@ -8,8 +8,7 @@ import AddNewHomePage from '../../pages/PagesManagement/AddNewHomePage';
 const HomePages = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
-  const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
-
+  const [isModalOpen, setIsModalOpen] = useState(false); 
   const pagesData = [
     { id: 1, title: 'Photography in Bengaluru', service: 'Photography', city: 'Bengaluru', slug: '/Photography-bengaluru', status: 'Published' },
     { id: 2, title: 'Wedding Makeup', service: 'Makeup', city: 'Bengaluru', slug: '/wedding-photography', status: 'Published' },
