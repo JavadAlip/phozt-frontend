@@ -7,11 +7,11 @@ import { useNavigate } from "react-router-dom";
 const VendorGroupCard = ({ title, members = [] }) => {
 
   return (
-    <div className="bg-white border border-black rounded-lg overflow-hidden">
+    <div className="bg-white border border-black  overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-black">
         <h3 className="text-[18px] font-medium text-black">{title}</h3>
-        <button className="p-1 hover:bg-gray-100 border border-gray-300 rounded">
+        <button className="p-1 hover:bg-gray-100 border border-gray-300 ">
           <Plus size={18} className="text-black" />
         </button>
       </div>
@@ -21,11 +21,11 @@ const VendorGroupCard = ({ title, members = [] }) => {
         {members.map((member, idx) => (
           <div
             key={idx}
-            className="flex items-center justify-between border border-black rounded px-3 py-2"
+            className="flex items-center justify-between border border-black  px-3 py-2"
           >
             {/* Left side: profile image + name + subname */}
             <div className="flex items-center gap-2 flex-1">
-              <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+              <div className="w-8 h-8 -full overflow-hidden flex-shrink-0">
                 <img
                   src={profile}
                   alt="Profile"
@@ -58,18 +58,18 @@ const VendorGroupCard = ({ title, members = [] }) => {
 
       {/* View All Members */}
       <div className="px-4 py-3 flex justify-center border-t border-black">
-        <button className="flex items-center gap-2 text-[14px] border border-black px-4 py-2 rounded hover:bg-gray-100">
+        <button className="flex items-center gap-2 text-[14px] border border-black px-4 py-2  hover:bg-gray-100">
           <Eye size={16} /> View All Group Members
         </button>
       </div>
 
       {/* Add / Delete Buttons */}
       <div className="px-4 py-3 flex justify-between border-t border-black">
-        <button className="flex items-center gap-2 text-[14px] border border-black px-3 py-2 rounded hover:bg-gray-100 whitespace-nowrap">
+        <button className="flex items-center gap-2 text-[14px] border border-black px-3 py-2  hover:bg-gray-100 whitespace-nowrap">
           <Plus size={14} /> Add Members
         </button>
 
-        <button className="flex items-center gap-2 text-[14px] border border-black px-3 py-2 rounded hover:bg-gray-100 whitespace-nowrap">
+        <button className="flex items-center gap-2 text-[14px] border border-black px-3 py-2  hover:bg-gray-100 whitespace-nowrap">
           <Trash2 size={14} /> Delete Group
         </button>
       </div>
@@ -151,7 +151,7 @@ const VendorGroup = () => {
         <div className="bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-start flex-shrink-0">
           <div className="flex-1 flex flex-col gap-2">
             <div className="flex justify-between items-center mt-2 w-full">
-              <div className="flex items-center border border-gray-300 rounded px-2 w-[70%]">
+              <div className="flex items-center border border-gray-300  px-2 w-[70%]">
                 <Search size={18} className="text-gray-400 mr-2" />
                 <input
                   type="text"
@@ -174,19 +174,19 @@ const VendorGroup = () => {
         </div>
 
         <div className="flex-1 overflow-auto p-6">
-          <div className="bg-white rounded-lg p-4 mb-6 flex items-center justify-between">
+          <div className="bg-white  p-4 mb-6 flex items-center justify-between">
             <div className="flex items-center gap-4">
 
               <label className="text-[18px] font-normal text-black">
                 Select the City
               </label>
-              <select className="px-3 py-2 border border-black font-normal rounded-lg text-[18px] bg-white">
+              <select className="px-3 py-2 border border-black font-normal  text-[18px] bg-white">
                 <option>{city}</option>
               </select>
             </div>
             <button
               onClick={handleNavigate}
-              className="flex items-center gap-2 font-normal text-[18px] px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
+              className="flex items-center gap-2 font-normal text-[18px] px-4 py-2 bg-white border border-gray-300  hover:bg-gray-50">
               <Plus size={16} />
               Create Lead Group
             </button>
@@ -212,14 +212,14 @@ const VendorGroup = () => {
           <div className="flex items-center justify-between mb-6">
             <p className="text-sm text-gray-600">Showing 1-3 of 15 pages</p>
             <div className="flex items-center gap-2">
-              <button className="p-2 hover:bg-gray-200 rounded">
+              <button className="p-2 hover:bg-gray-200 ">
                 <ChevronLeft size={18} />
               </button>
               {pageNumbers.map((num) => (
                 <button
                   key={num}
                   onClick={() => setCurrentPage(num)}
-                  className={`w-8 h-8 flex items-center justify-center rounded text-sm ${currentPage === num
+                  className={`w-8 h-8 flex items-center justify-center  text-sm ${currentPage === num
                     ? "bg-gray-400 text-white font-bold"
                     : "text-gray-700 hover:bg-gray-200"
                     }`}
@@ -228,7 +228,7 @@ const VendorGroup = () => {
                 </button>
               ))}
               <span className="text-gray-600">... {totalPages}</span>
-              <button className="p-2 hover:bg-gray-200 rounded">
+              <button className="p-2 hover:bg-gray-200 ">
                 <ChevronRight size={18} />
               </button>
             </div>
@@ -238,10 +238,10 @@ const VendorGroup = () => {
             <h1 className="text-[43px] font-medium text-black">Single Vendor Window</h1>
 
             {/* Form section */}
-            <div className="flex items-center bg-white p-4 border border-gray-200 rounded-lg gap-2">
+            <div className="flex items-center bg-white p-4 border border-gray-200  gap-2">
               {/* Select Vendor Dropdown */}
               <select
-                className="border rounded-md px-3 py-2 w-full max-w-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="border px-3 py-2 w-full max-w-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="">Select Vendor</option>
                 <option value="vendor1">Vendor 1</option>
@@ -252,7 +252,7 @@ const VendorGroup = () => {
               {/* Send Button */}
               <button
                 type="button"
-                className="border border-black hover:bg-gray-400 text-black font-medium px-6 py-2 rounded-lg"
+                className="border border-black hover:bg-gray-400 text-black font-medium px-6 py-2 "
               >
                 Send
               </button>

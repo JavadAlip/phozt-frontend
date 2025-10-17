@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import Dashboard from "./pages/Dashboard";
 import Leads from "./pages/LeadsManagement/LeadsManagement";
 import VendorGroup from "./pages/LeadsManagement/VendorGroup";
 import CreateLeadGroup from "./pages/LeadsManagement/CreateLeadGroup";
@@ -18,6 +17,7 @@ import CityManagement from "./pages/Cities/CityManagement";
 import LocalAreaDetails from "./pages/Cities/LocalAreaDetails";
 import ArticlesMain from "./pages/Articles/ArticlesMain";
 import EditArticle from "./pages/Articles/EditArticle";
+import Home from "./pages/HomePage/Home";
 export default function App() {
   return (
     <Router>
@@ -39,7 +39,8 @@ export default function App() {
         <Route path="/local-area-details" element={< LocalAreaDetails />} />
         <Route path="/articles" element={<ArticlesMain />} />
         <Route path="/edit-article" element={<EditArticle />} />
+        <Route path="/home" element={<Home />} />
       </Routes>
     </Router>
-  ); F
+  ); 
 }

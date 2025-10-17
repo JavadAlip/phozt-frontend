@@ -70,19 +70,19 @@ const CreateLeadGroup = () => {
                 {/* Main Content */}
                 <div className="flex-1 overflow-auto p-6">
                     {/* City Selector */}
-                    <div className="bg-white rounded-lg p-4 mb-6 flex items-center justify-between">
+                    <div className="bg-white  p-4 mb-6 flex items-center justify-between">
                         <div className="flex items-center gap-4">
                             <label className="text-[18px] font-normal text-black">
                                 Select the City
                             </label>
-                            <select className="px-3 py-2 border border-black font-normal rounded-lg text-[18px] bg-white">
+                            <select className="px-3 py-2 border border-black font-normal  text-[18px] bg-white">
                                 <option>{city}</option>
                             </select>
                         </div>
                     </div>
 
                     {/* Create New Lead Group Form */}
-                    <div className="bg-white rounded-lg border border-gray-300 p-6 max-w-2xl">
+                    <div className="bg-white  border border-gray-300 p-6 max-w-2xl">
                         <h2 className="text-[30px] font-semibold text-black mb-1">
                             Create New Lead Group
                         </h2>
@@ -100,7 +100,7 @@ const CreateLeadGroup = () => {
                                 placeholder="Eg: Makeup vendors 1"
                                 value={groupName}
                                 onChange={(e) => setGroupName(e.target.value)}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-[14px] outline-none focus:border-gray-400"
+                                className="w-full px-3 py-2 border border-gray-300  text-[14px] outline-none focus:border-gray-400"
                             />
                         </div>
 
@@ -112,7 +112,7 @@ const CreateLeadGroup = () => {
                             <select
                                 value={selectedService}
                                 onChange={(e) => setSelectedService(e.target.value)}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-[14px] outline-none focus:border-gray-400 bg-white"
+                                className="w-full px-3 py-2 border border-gray-300  text-[14px] outline-none focus:border-gray-400 bg-white"
                             >
                                 <option value="">Photography services</option>
                                 {services.map((service, idx) => (
@@ -140,12 +140,12 @@ const CreateLeadGroup = () => {
                                     placeholder="Search name / service"
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
-                                    className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg text-[14px] outline-none focus:border-gray-400"
+                                    className="w-full pl-10 pr-3 py-2 border border-gray-300  text-[14px] outline-none focus:border-gray-400"
                                 />
                             </div>
 
                             {/* Members List */}
-                            <div className="border border-gray-300 rounded-lg p-3 max-h-48 overflow-y-auto space-y-2">
+                            <div className="border border-gray-300  p-3 max-h-48 overflow-y-auto space-y-2">
                                 {filteredMembers.map((member) => (
                                     <label
                                         key={member.id}
@@ -193,10 +193,10 @@ const CreateLeadGroup = () => {
 
                         {/* Action Buttons */}
                         <div className="flex gap-3">
-                            <button className="flex-1 px-4 py-2 border bg-[#EBEBEB] border-gray-300 rounded-lg text-[14px] font-medium text-black hover:bg-gray-50">
+                            <button className="flex-1 px-4 py-2 border bg-[#EBEBEB] border-gray-300  text-[14px] font-medium text-black hover:bg-gray-50">
                                 Cancel
                             </button>
-                            <button className="flex-1 px-4 py-2 bg-[#EBEBEB] text-black rounded-lg text-[14px] font-medium hover:bg-gray-50">
+                            <button className="flex-1 px-4 py-2 bg-[#EBEBEB] text-black  text-[14px] font-medium hover:bg-gray-50">
                                 Create Group
                             </button>
                         </div>

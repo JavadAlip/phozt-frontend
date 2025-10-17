@@ -98,7 +98,7 @@ const CreateNewLead = () => {
                                         placeholder="Enter the name of Lead"
                                         value={formData.name}
                                         onChange={handleInputChange}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg text-[16px] outline-none focus:border-gray-400"
+                                        className="w-full px-4 py-2 border border-gray-300  text-[16px] outline-none focus:border-gray-400"
                                     />
                                 </div>
 
@@ -110,7 +110,7 @@ const CreateNewLead = () => {
                                         name="service"
                                         value={formData.service}
                                         onChange={handleInputChange}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg text-[16x] outline-none focus:border-gray-400 bg-white"
+                                        className="w-full px-4 py-2 border border-gray-300  text-[16x] outline-none focus:border-gray-400 bg-white"
                                     >
                                         <option value="">Select the Service Required</option>
                                         {services.map((service, idx) => (
@@ -150,7 +150,7 @@ const CreateNewLead = () => {
                                         name="city"
                                         value={formData.city}
                                         onChange={handleInputChange}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg text-[16px] outline-none focus:border-gray-400 bg-white"
+                                        className="w-full px-4 py-2 border border-gray-300  text-[16px] outline-none focus:border-gray-400 bg-white"
                                     >
                                         <option value="">Select the City of Event</option>
                                         {cities.map((city, idx) => (
@@ -173,7 +173,7 @@ const CreateNewLead = () => {
                                         name="eventDate"
                                         value={formData.eventDate}
                                         onChange={handleInputChange}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg text-[16px] outline-none focus:border-gray-400"
+                                        className="w-full px-4 py-2 border border-gray-300  text-[16px] outline-none focus:border-gray-400"
                                     />
                                 </div>
                                 <div>
@@ -186,7 +186,7 @@ const CreateNewLead = () => {
                                         placeholder="Enter Approx Budget for Event"
                                         value={formData.eventBudget}
                                         onChange={handleInputChange}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg text-[16px] outline-none focus:border-gray-400"
+                                        className="w-full px-4 py-2 border border-gray-300  text-[16px] outline-none focus:border-gray-400"
                                     />
                                 </div>
                             </div>
@@ -202,7 +202,7 @@ const CreateNewLead = () => {
                                     value={formData.message}
                                     onChange={handleInputChange}
                                     rows="5"
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg text-[16px] outline-none focus:border-gray-400 resize-none"
+                                    className="w-full px-4 py-2 border border-gray-300  text-[16px] outline-none focus:border-gray-400 resize-none"
                                 />
                             </div>
 
@@ -210,13 +210,13 @@ const CreateNewLead = () => {
                             <div className="flex gap-4">
                                 <button
                                     onClick={handleReset}
-                                    className="flex-1 px-4 py-2 border border-black bg-white rounded-lg text-[24px] font-normal text-black"
+                                    className="flex-1 px-4 py-2 border border-black bg-white  text-[24px] font-normal text-black"
                                 >
                                     Clear
                                 </button>
                                 <button
                                     onClick={handleSubmit}
-                                    className="flex-1 px-4 py-2  text-black rounded-lg text-[24px] border border-black font-normal "
+                                    className="flex-1 px-4 py-2  text-black  text-[24px] border border-black font-normal "
                                 >
                                     Create Lead
                                 </button>

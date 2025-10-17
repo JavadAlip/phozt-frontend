@@ -34,7 +34,7 @@ const LeadsTable = ({ leads }) => {
     };
 
     return (
-        <div className="bg-white rounded-lg border border-black shadow-sm flex flex-col h-[500px]">
+        <div className="bg-white  border border-black shadow-sm flex flex-col h-[500px]">
             {/* Table Header Tabs */}
             <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center bg-gray-50 flex-shrink-0">
                 <div className="flex gap-4 text-sm">
@@ -187,7 +187,7 @@ const LeadsManagement = () => {
                         {/* Stats Section */}
                         <div className="grid grid-cols-4 gap-4 mb-6">
                             {stats.map((stat, idx) => (
-                                <div key={idx} className="bg-white rounded-lg p-4 border border-black shadow-sm flex items-center justify-between">
+                                <div key={idx} className="bg-white  p-4 border border-black shadow-sm flex items-center justify-between">
                                     <div>
                                         <p className="text-black text-[20px] font-medium font-poppins mb-1">{stat.label}</p>
                                         <p className="text-[20px] font-medium text-black">{stat.value}</p>
@@ -198,7 +198,7 @@ const LeadsManagement = () => {
                             ))}
                         </div>
                         {/* Lead Distribution Chart */}
-                        <div className="bg-white rounded-lg border border-black p-6 mb-6 shadow-sm">
+                        <div className="bg-white  border border-black p-6 mb-6 shadow-sm">
                             <h2 className="text-[28px] font-bold text-black mb-4">Lead Distribution with Vendor Groups</h2>
                             <div className="bg-gray-50 h-10 rounded font-normal flex items-center justify-start text-gray-400 text-[18px]">
                                 You are Distributing leads For vendors under rule/ manual intervention
@@ -209,19 +209,19 @@ const LeadsManagement = () => {
                         <LeadsTable leads={leads} />
 
                         {/* Quick Actions */}
-                        <div className="mt-6 bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+                        <div className="mt-6 bg-white  border border-gray-200 p-6 shadow-sm">
                             <h3 className="text-[36px] font-bold text-black mb-4">Quick Actions</h3>
                             <div className="grid grid-cols-4 gap-48 justify-items-start">
                                 <div
                                     onClick={() => navigate("/create-new-lead")}
-                                    className="border border-black rounded-lg p-6 text-center hover:bg-gray-50 cursor-pointer w-64">
+                                    className="border border-black  p-6 text-center hover:bg-gray-50 cursor-pointer w-64">
                                     <img src={plus} alt="plus icon" className="mx-auto mb-2 w-6 h-6" />
                                     <p className="text-black font-regular text-[16px] mb-1">Add A New Lead</p>
                                     <p className="text-[14px] text-black font-regular">Create a new lead manually</p>
                                 </div>
                                 <div
                                     onClick={() => navigate("/distribution-method")}
-                                    className="border border-black rounded-lg p-6 text-center hover:bg-gray-50 cursor-pointer w-64">
+                                    className="border border-black  p-6 text-center hover:bg-gray-50 cursor-pointer w-64">
                                     <img src={leadDistribution} alt="leadDistribution icon" className="mx-auto mb-2 w-6 h-6" />
                                     <p className="text-black font-normal text-[16px] mb-1">Lead Distribution Method</p>
                                     <p className="text-[14px] font-normal text-black">Select how you want to distribute the selected leads</p>
