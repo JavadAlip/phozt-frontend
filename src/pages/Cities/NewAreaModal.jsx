@@ -48,7 +48,7 @@ const NewAreaModal = ({ isOpen, onClose, onSave }) => {
                             value={formData.areaName}
                             onChange={handleChange}
                             placeholder="Enter The local Area Name"
-                            className="w-[500px] px-4 py-3 border border-gray-300 text-sm placeholder:text-gray-400 focus:outline-none focus:border-black"
+                            className="w-[500px] px-4 py-3 border border-black text-sm placeholder:text-gray-400 focus:outline-none focus:border-black"
                         />
                     </div>
 
@@ -63,7 +63,7 @@ const NewAreaModal = ({ isOpen, onClose, onSave }) => {
                             value={formData.pincode}
                             onChange={handleChange}
                             placeholder="Enter The local Area Pincode"
-                            className="w-[500px] px-4 py-3 border border-gray-300 text-sm placeholder:text-gray-400 focus:outline-none focus:border-black"
+                            className="w-[500px] px-4 py-3 border border-black text-sm placeholder:text-gray-400 focus:outline-none focus:border-black"
                         />
                     </div>
 
@@ -76,7 +76,7 @@ const NewAreaModal = ({ isOpen, onClose, onSave }) => {
                             name="status"
                             value={formData.status}
                             onChange={handleChange}
-                            className="w-[500px] px-4 py-3 border border-gray-300 text-sm text-gray-400 appearance-none bg-white focus:outline-none focus:border-black cursor-pointer"
+                            className="w-[500px] px-4 py-3 border border-black text-sm text-gray-400 appearance-none bg-white focus:outline-none focus:border-black cursor-pointer"
                             style={{
                                 backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
                                 backgroundRepeat: 'no-repeat',

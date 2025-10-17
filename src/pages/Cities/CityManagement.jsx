@@ -1,11 +1,15 @@
+
+
 import React, { useState } from 'react';
-import { Search, Plus, BarChart3 } from 'lucide-react';
+import { Search, Plus } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import Sidebar from '../../components/Sidebar';
 import city1 from '../../assets/Icons/city1.png';
 
 const CityManagement = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchTerm, setSearchTerm] = useState('');
+    const navigate = useNavigate();
 
     const [cities] = useState([
         {
@@ -57,7 +61,7 @@ const CityManagement = () => {
                 <div className="bg-white border-b border-black px-6 py-4 flex justify-between items-start flex-shrink-0">
                     <div className="flex-1 flex flex-col gap-2">
                         <div className="flex justify-between items-center mt-2 w-full">
-                            <div className="flex items-center border border-black  px-2 w-[70%]">
+                            <div className="flex items-center border border-black px-2 w-[70%]">
                                 <Search size={18} className="text-black mr-2" />
                                 <input
                                     type="text"
@@ -83,7 +87,7 @@ const CityManagement = () => {
 
                 {/* Content Area */}
                 <div className="flex-1 p-6 overflow-auto">
-                    <div className="bg-white  shadow-sm border border-black p-6">
+                    <div className="bg-white shadow-sm border border-black p-6">
                         {/* Stats Cards */}
                         <div className="mb-6">
                             <div className="grid grid-cols-2 gap-4 mb-6">
@@ -104,7 +108,6 @@ const CityManagement = () => {
                                 </div>
                             </div>
 
-
                             {/* Search and Add */}
                             <div className="flex gap-3 mb-4">
                                 <div className="flex-1 relative">
@@ -114,62 +117,45 @@ const CityManagement = () => {
                                         placeholder="Search pages"
                                         value={searchTerm}
                                         onChange={(e) => setSearchTerm(e.target.value)}
-                                        className="w-[450px] pl-10 pr-4 py-2 border placeholder:text-black  border-black  text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                        className="w-[450px] pl-10 pr-4 py-2 border placeholder:text-black border-black text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                                     />
                                 </div>
-                                <button className="px-4 py-2 bg-white border border-black  text-sm font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                                <button className="px-4 py-2 bg-white border border-black text-sm font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2">
                                     <Plus className="w-4 h-4" />
                                     Add New City
                                 </button>
                             </div>
 
                             {/* City Cards */}
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid grid-cols-3 gap-4">
                                 {filteredCities.map((city) => (
                                     <div
-                                        key={city.id}
-                                        className="bg-white border border-black  p-4"
+                                        // key={city.id}
+                                        className="bg-white border border-black p-4 cursor-pointer hover:shadow-md"
+                                        onClick={() => navigate(`/local-area-details`)}
                                     >
-                                        {/* City Header with Active/Inactive (both visible) */}
+                                        {/* City Header with Active/Inactive */}
                                         <div className="flex items-center justify-between mb-4">
-                                            <h3 className="font-semibold text-black text-lg">
-                                                {city.name}
-                                            </h3>
+                                            <h3 className="font-semibold text-black text-lg">{city.name}</h3>
                                             <div className="flex gap-2">
-                                                <button className="px-3 py-1 text-xs  border bg-white border-black text-black">
-                                                    Active
-                                                </button>
-                                                <button className="px-3 py-1 text-xs  border bg-white border-black text-black">
-                                                    Inactive
-                                                </button>
+                                                <button className="px-3 py-1 text-xs border bg-white border-black text-black">Active</button>
+                                                <button className="px-3 py-1 text-xs border bg-white border-black text-black">Inactive</button>
                                             </div>
                                         </div>
 
                                         {/* City Details */}
                                         <div className="space-y-3">
                                             <div className="flex justify-between items-center py-2 border-b border-black">
-                                                <span className="text-sm text-black">
-                                                    Total Local Areas:
-                                                </span>
-                                                <span className="text-sm font-medium text-gray-900">
-                                                    {city.totalLocalAreas}
-                                                </span>
+                                                <span className="text-sm text-black">Total Local Areas:</span>
+                                                <span className="text-sm font-medium text-gray-900">{city.totalLocalAreas}</span>
                                             </div>
-
                                             <div className="flex justify-between items-center py-2 border-b border-black">
                                                 <span className="text-sm text-black">Pin Codes:</span>
-                                                <span className="text-sm font-medium text-gray-900">
-                                                    {city.pinCodes}
-                                                </span>
+                                                <span className="text-sm font-medium text-gray-900">{city.pinCodes}</span>
                                             </div>
-
                                             <div className="py-2">
-                                                <span className="text-sm text-black block mb-1">
-                                                    Areas:
-                                                </span>
-                                                <span className="text-sm text-gray-900">
-                                                    {city.areas}
-                                                </span>
+                                                <span className="text-sm text-black block mb-1">Areas:</span>
+                                                <span className="text-sm text-gray-900">{city.areas}</span>
                                             </div>
                                         </div>
                                     </div>
